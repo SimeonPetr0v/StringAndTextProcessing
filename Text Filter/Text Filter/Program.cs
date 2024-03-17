@@ -1,10 +1,23 @@
-﻿namespace Text_Filter
+﻿using System.Text;
+
+namespace Text_Filter
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            string[] banList = Console.ReadLine().Split(", ");
+            StringBuilder text = new StringBuilder(Console.ReadLine());
+            foreach (string ban in banList)
+            {
+
+                while (text.ToString().Contains(ban))
+                {
+                    text.Replace(ban, new string('*', ban.Length));
+                }
+              }
+            Console.WriteLine(text.ToString());
+
         }
     }
 }
